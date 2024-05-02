@@ -1,26 +1,28 @@
-.faq{
+.faq {
     padding: 5.6vw;
 
-    h2{
+    h2 {
         text-align: center;
         margin-bottom: 24px;
     }
 
-    &__questions{
-        &__item{
+    &__questions {
+        &__item {
             background-color: #13151d;
             margin-bottom: 16px;
 
-            &__question{
+            &__question {
                 color: #fff;
                 font-size: 20px;
                 padding: 24px;
                 display: block;
                 cursor: pointer;
                 position: relative;
-                
+                @media (max-width: 768px){
+                    max-width: 90%;
+                }
 
-                &::after{
+                &::after {
                     content: '+';
                     position: absolute;
                     top: 0;
@@ -29,26 +31,32 @@
                     display: flex;
                     align-items: center;
                     font-size: 40px;
+                    @media (max-width: 768px){
+                        font-size: 40px;
+                        right: -15px;
+                    }
                 }
             }
 
-            &__answer{
+            &__answer {
                 height: 0;
                 overflow: hidden;
                 padding: 0 24px;
-                transition: height, .25s ease-in-out;
+                transition: height, .5s ease;
             }
 
-            &--is-open{
-                .faq__questions__item__question::after{
+            &--is-open {
+                .faq__questions__item__question::after {
                     content: '-';
                 }
-                .faq__questions__item__answer{
+                
+                .faq__questions__item__answer {
                     height: auto;
                     padding-bottom: 24px;
-
-                    transition: height, .25s ease-in-out;
-                    
+                    transition: height, .5s ease;
+                    &__list{
+                        list-style: disc;
+                    }
                         &__list__item{
                             margin-bottom: 16px;
                             list-style: disc;
@@ -59,6 +67,7 @@
                     }
                 }
             }
+                
         }
     }
 }
